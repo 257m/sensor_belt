@@ -101,7 +101,7 @@ void setup(void) {
 
   // serve a built-in htm page
   server.on("/", []() {
-    server.send(200, "text/html", std::to_string(final_distance()));
+    server.send(200, "text/html", String(final_distance()));
   });
   // serve a built-in htm page
   server.on("/style.css", []() {
