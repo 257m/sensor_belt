@@ -8,46 +8,40 @@
 // used for $upload.htm
 static const char uploadContent[] PROGMEM =
   R"==(
-<!doctype html>
-<html lang='en'>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Upload</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
-<body style="width:300px">
-  <h1>Upload</h1>
-  <div><a href="/">Home</a></div>
-  <hr>
-  <div id='zone' style='width:16em;height:12em;padding:10px;background-color:#ddd'>Drop files here...</div>
-
-  <script>
-    // allow drag&drop of file objects
-    function dragHelper(e) {
-      e.stopPropagation();
-      e.preventDefault();
-    }
-
-    // allow drag&drop of file objects
-    function dropped(e) {
-      dragHelper(e);
-      var fls = e.dataTransfer.files;
-      var formData = new FormData();
-      for (var i = 0; i < fls.length; i++) {
-        formData.append('file', fls[i], '/' + fls[i].name);
-      }
-      fetch('/', { method: 'POST', body: formData }).then(function () {
-        window.alert('done.');
-      });
-    }
-    var z = document.getElementById('zone');
-    z.addEventListener('dragenter', dragHelper, false);
-    z.addEventListener('dragover', dragHelper, false);
-    z.addEventListener('drop', dropped, false);
-  </script>
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+          <a href="/" id="navbar__logo">NEXT</a>
+          <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a href="/" class="navbar__links">Home</a>
+            </li>
+            <li class="navbar__item">
+                <a href="settings.html" class="navbar__links">Settings</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/" class="navbar__links">Products</a>
+            </li>
+            <li class="navbar__btn"><a href="/" 
+                class="button">Sign up</a></li>
+          </ul>
+        </div>
+    </nav>
 </body>
+</html>
 )==";
 
 // used for $upload.htm
