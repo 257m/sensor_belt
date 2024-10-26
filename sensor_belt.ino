@@ -65,6 +65,7 @@ const int echoPin = 4;
 long duration;//in long because the number is big, and not within the range of an integer
 int distance; //distace will be in cm as an integer no decimals 
 
+
 int final_distance() {
    digitalWrite(2,LOW); //setting the trigger pin to low 
   delayMicroseconds(3); //delay for 3 microseconds
@@ -110,7 +111,8 @@ void setup(void) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Website</title>
+    <title>First Website</title> 
+    <body>)==") + dashboard + R"==(</body>
     <script>
       $(document).ready(function() {
             let speed = 0;
