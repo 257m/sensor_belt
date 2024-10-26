@@ -111,9 +111,7 @@ void setup(void) {
     <title>First Website</title>
     <link rel="stylesheet" href="style.css">
 </head>
-  <body>
-)==") +
-String(final_distance()) +
+  <body> Sensor Distance:)==") + String(final_distance()) +
 String(R"==(</body>
 </html>
 )=="));
