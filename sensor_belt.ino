@@ -75,15 +75,15 @@ int control_buzz(distance) {
   distance = timing * (0.034 / 2);
 
   if (distance <= 50) {
-    tone(buzzer, 30, distance50);
-    delay(distance5);
+    tone(buzzer,500 + disatnce, distance*50);
+    delay(distance*5);
     noTone(buzzer);
-    delay(distance5);
+    delay(distance*5);
 
   }
-  else if (distance <= 100) {
-    tone(buzzer, 600);
-    delay(distance5);
+  else if (distance <= 200) {
+    tone(buzzer,500 + distance,disatnce*50);
+    delay(distance*5);
     tone(buzzer, 600);
     delay(distance*5);
   }
