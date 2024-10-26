@@ -181,7 +181,7 @@ server.on("/settings.html", []() {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Website</title>
-    <style>)==") + dashboardCss +
+    <style>)==") + dashboardCSS +
     String(R"==(</style>
     <script src="settings.js"></script>
 </head>
