@@ -63,7 +63,7 @@ float distance = 0.0;
 
 #include "components.h"
 
-int distance_buzz(int distance) {
+int distance_buzz() {
   digitalWrite(trig_pin, LOW);
   delayMicroseconds(2);
 
