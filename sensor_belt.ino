@@ -109,9 +109,11 @@ void setup(void) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Website</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+      
+    </style>
 </head>
-  <body> Sensor Distance:)==") + String(final_distance()) +
+  <body> <div>Sensor Distance:)==") + String(final_distance()) +
 String(R"==(</body>
 </html>
 )=="));
