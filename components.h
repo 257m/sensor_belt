@@ -1,7 +1,7 @@
 String dashboard = R"==(<nav class="navbar">
 
         <div class="navbar__container">
-          <a href="/" id="navbar__logo">NEXT</a>
+          <a href="/" id="navbar__logo">Object Sensor</a>
           <div class="navbar__toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -32,12 +32,44 @@ String settings = R"==(
     </div>
 )==";
 
+String settingsJS = R"==(
+<script>
+      document.addEventListener("DOMContentLoaded", function(event) { 
+let sensDistSlide = document.getElementById("sensor_dist");
+let vibrateStrSlide = document.getElementById("vibrate_strength");
+let distOut = document.getElementById("sensor_dist_display");
+let strOut = document.getElementById("vibrate_strength_display");
+updateValues();
+
+
+sensDistSlide.oninput = function() {
+    updateValues();
+};
+
+vibrateStrSlide.oninput = function() {
+    updateValues();
+};
+
+function updateValues() {
+    distOut.innerHTML=sensDistSlide.value+"m";
+    strOut.innerHTML=Math.round(vibrateStrSlide.value*100)+"%";
+}
+});
+
+    </script>
+)==";
+
 String dashboardCSS = R"==(*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family:'Kumbh Sans', sans-serif;
 }
+
+body {
+    background: rgba(2,5,5,0.3);
+}
+
 
 .navbar{
     background: #131313;
