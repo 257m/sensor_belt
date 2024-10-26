@@ -289,6 +289,7 @@ String speedometerCSS = R"==(
             width: 200px;
             height: 200px;
             border-radius: 50%;
+            border-color: #000000;
             background-color: #f5f5f5;
             display: flex;
             justify-content: center;
