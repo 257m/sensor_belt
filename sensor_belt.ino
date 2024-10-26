@@ -113,7 +113,7 @@ void setup(void) {
       
     </style>
 </head>
-  <body> <div>Sensor Distance:)==") + String(final_distance()) +
+  <body> <div>Sensor Distance:)==") + String(distance) +
 String(R"==(</body>
 </html>
 )=="));
@@ -135,5 +135,6 @@ String(R"==(</body>
 
 void loop(void) {
   server.handleClient();
+  final_distance();
 }
 
