@@ -188,4 +188,12 @@
     }
 }
 
+#settings_div {
+    margin-top: 35px;
+    margin-left: 35%;
+    margin-right: 35%;
+}
 
+#settings_title{
+    margin-bottom: 20px;
+}
