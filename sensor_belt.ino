@@ -83,7 +83,7 @@ int distance_buzz(int distance) {
 
   }
   else if (distance <= 200) {
-    tone(buzzer,500 + distance,disatnce*50);
+    tone(buzzer,500 + distance,distance*50);
     delay(distance*5);
     tone(buzzer, 600);
     delay(distance*5);
