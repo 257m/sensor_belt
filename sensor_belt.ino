@@ -115,14 +115,19 @@ const int echoPin = 11;
 long duration;//in long because the number is big, and not within the range of an integer
 int distance; //distace will be in cm as an integer no decimals 
 
-void loop(void) {
-  server.handleClient();
-  /*digitalWrite(9,LOW); //setting the trigger pin to low 
+int final_distance() {
+   digitalWrite(9,LOW); //setting the trigger pin to low 
   delayMicroseconds(3); //delay for 3 microseconds
   digitalWrite(9, HIGH); //setting the trigger pin to high 
   delayMicroseconds(100);//delay for 10 microseconds 
   duration = pulseIn(11,HIGH);//our duration is equal to the time our pin is HIGH (pulseIn)
   distance = duration*.034/2; //this calculates the distance 
   Serial.print("distance ="); //here the distance is printed based on the calculations above 
-  Serial.println(distance); // what is the difference between print and println*/
+  Serial.println(distance); // what is the difference between print and println
+  return distance
 }
+
+void loop(void) {
+  server.handleClient();
+}
+
