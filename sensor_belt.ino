@@ -147,12 +147,11 @@ void setup(void) {
    <div class="needle">
    </div>
    <div class="speed">
-    )==" + String(distance) + String("==(
+    )==" + String(distance) + String(R"==(
    </div>
-  </div> <div>Sensor Distance:)==") + String(distance) +
-String(R"==(</body>
+  </body>
 </html>
-)==")));
+)==");
   });
 
 server.on("/settings.html", []() {
