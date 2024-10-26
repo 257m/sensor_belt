@@ -111,9 +111,9 @@ void setup(void) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Website</title>)==") + speedometerCSS + speedometerJS +
+    <title>First Website</title>)==") + dashboardCSS + speedometerCSS + speedometerJS +
 String(R"==(</head>
-  <body>)==") + speedometer() +
+  <body>)==") + dashboard + speedometer() +
 String(R"==(
 </body>
 </head>
