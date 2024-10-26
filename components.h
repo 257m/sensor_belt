@@ -286,7 +286,8 @@ String speedometerCSS = R"==(
     </style>
 )==";
 
-String speedometer = R"==(
+String speedometer() {
+  return String(R"==(
   <!-- Speedometer -->
   <div class="text-center" id="speedometer">
    <div class="needle">
@@ -294,4 +295,5 @@ String speedometer = R"==(
    <div class="speed">
     )==") + String(distance) + String(R"==(
    </div>
-)==";
+)==");
+}

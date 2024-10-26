@@ -54,7 +54,6 @@ WebServer server(80);
 
 // The text of builtin files are in this header file
 #include "builtinfiles.h"
-#include "components.h"
 
 //defining pin numbers 
 const int trigPin = 2;  
@@ -64,6 +63,8 @@ const int echoPin = 4;
 //defining our variables 
 long duration;//in long because the number is big, and not within the range of an integer
 int distance; //distace will be in cm as an integer no decimals 
+
+#include "components.h"
 
 int final_distance() {
    digitalWrite(2,LOW); //setting the trigger pin to low 
@@ -112,8 +113,10 @@ void setup(void) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Website</title>)==") + speedometerCSS + speedometerJS +
 String(R"==(</head>
-  <body>)==") + speedometer +
-  String(R"==(</body>
+  <body>)==") + speedometer() +
+String(R"==(
+</body>
+</head>
 </html>
 )=="));
   });
