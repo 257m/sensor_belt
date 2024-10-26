@@ -151,7 +151,7 @@ void setup(void) {
    </div>
   </body>
 </html>
-)==");
+)=="));
   });
 
 server.on("/settings.html", []() {
@@ -203,7 +203,7 @@ server.on("/settings.html", []() {
 </body>
 </html>
 )=="));
-  });
+});
    
   // serve a built-in htm page
   server.on("/style.css", []() {
