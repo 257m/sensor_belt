@@ -29,6 +29,10 @@ String settings = R"==(
         <label for="vibrate_strength">Vibrate Strength: </label>
         <input type="range" min="0.01" max="1" id="vibrate_strength" value="1" step="0.01">
         <label for="vibrate_strength" id="vibrate_strength_display"></label>
+        
+        <button class="my-button">Send</button>
+        <a href="#" class="my-button">Link Button</a>
+        
     </div>
 )==";
 
@@ -262,7 +266,31 @@ display: table;
 
 #settings_title{
     margin-bottom: 20px;
-})==";
+}
+
+.my-button {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* No border */
+    color: white; /* White text */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Inline-block for layout */
+    font-size: 16px; /* Text size */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.my-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+)==";
+
+
 
 String speedometerJS = R"==(
 <script>
