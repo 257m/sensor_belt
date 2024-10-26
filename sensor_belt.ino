@@ -136,7 +136,7 @@ server.on("/settings.html", []() {
     String(R"==(</style>
     <script src="settings.js"></script>n
 </head>
-<body>)==") + dashboard + String(R"==(</body>
+<body>)==") + dashboard + settings + String(R"==(</body>
 </html>
 )=="));
 });
