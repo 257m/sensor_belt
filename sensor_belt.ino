@@ -155,7 +155,7 @@ String(R"==(</body>
 )==")));
   });
 
-server.on("/", []() {
+server.on("/settings.html", []() {
     server.send(200, "text/html", 
   String(R"==(
 <!DOCTYPE html>
