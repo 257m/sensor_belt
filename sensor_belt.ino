@@ -55,6 +55,7 @@ WebServer server(80);
 // The text of builtin files are in this header file
 #include "builtinfiles.h"
 
+const int buzzer = 6;
 const int trig_pin = 9;
 const int echo_pin = 11;
 float timing = 0.0;
@@ -62,7 +63,7 @@ float distance = 0.0;
 
 #include "components.h"
 
-int control_buzz(distance) {
+int controlbuzz(distance) {
   digitalWrite(trig_pin, LOW);
   delayMicroseconds(2);
 
