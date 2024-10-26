@@ -137,6 +137,33 @@ void setup(void) {
 // run the server...
 void loop(void) {
   server.handleClient();
+  //defining pin numbers 
+const int trigPin = 9;  
+const int echoPin = 11;
+
+//defining our variables 
+long duration;//in long because the number is big, and not within the range of an integer
+int distance; //distace will be in cm as an integer no decimals 
+
+//determining if the pins are output or input 
+void setup() {
+  //determining pins on the sensor 
+  pinMode(9,OUTPUT);
+  pinMode(11,INPUT);
+
+  //Serial.begin(9600);
+}
+
+void loop() {
+    digitalWrite(9,LOW); //setting the trigger pin to low 
+delayMicroseconds(3); //delay for 3 microseconds
+  digitalWrite(9, HIGH); //setting the trigger pin to high 
+delayMicroseconds(100);//delay for 10 microseconds 
+  duration = pulseIn(11,HIGH);//our duration is equal to the time our pin is HIGH (pulseIn)
+  distance = duration*.034/2; //this calculates the distance 
+     //Serial.print("distance ="); //here the distance is printed based on the calculations above 
+//   //Serial.println(distance); // what is the difference between print and println 
+}
 }  // loop()
 
 // end.
