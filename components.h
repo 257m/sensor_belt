@@ -43,6 +43,8 @@ let sensDistSlide = document.getElementById("sensor_dist");
 let vibrateStrSlide = document.getElementById("vibrate_strength");
 let distOut = document.getElementById("sensor_dist_display");
 let strOut = document.getElementById("vibrate_strength_display");
+let str;
+let dist;
 updateValues();
 
 
@@ -55,8 +57,11 @@ vibrateStrSlide.oninput = function() {
 };
 
 function updateValues() {
-    distOut.innerHTML=sensDistSlide.value+"m";
-    strOut.innerHTML=Math.round(vibrateStrSlide.value*100)+"%";
+    dist=sensDistSlide.value+"m";
+    str=Math.round(vibrateStrSlide.value*100)+"%";
+
+    distOut.innerHTML = dist;
+    strOut.innerHTML = str;
 }
 });
 
