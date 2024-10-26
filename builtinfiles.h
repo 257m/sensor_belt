@@ -6,7 +6,7 @@
  */
 
 // used for $upload.htm
-static const char uploadContent[] PROGMEM =
+static const char homePage[] PROGMEM =
   R"==(
 <!DOCTYPE html>
 <html lang="en">

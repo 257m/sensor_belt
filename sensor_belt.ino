@@ -296,26 +296,34 @@ void setup(void) {
 
   // start WiFI
   Serial.print("Setting AP (Access Point)… ");
+  WiFi.mode(WIFI_MODE_APSTA);
   WiFi.softAP(ssid, passPhrase);
   IPAddress IP = WiFi.softAPIP();
   Serial.print("IP address of the router of this network: ");
   Serial.println(IP);
+  /*WiFi.begin("Den1880", "Den@14Erb!");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.println("Connecting to WiFi..");
+  }*/
+  Serial.print("ESP32 IP as soft AP: ");
+  Serial.println(WiFi.softAPIP());
+  Serial.print("ESP32 IP on the WiFi network: ");
+  Serial.println(WiFi.localIP());
+
   server.begin();
 
   // Ask for the current time using NTP request builtin into ESP firmware.
-  TRACE("Setup ntp...\n");
-  configTzTime(TIMEZONE, "pool.ntp.org");
+  //TRACE("Setup ntp...\n");
+  //configTzTime(TIMEZONE, "pool.ntp.org");
 
   TRACE("Register redirect...\n");
-
-  // register a redirect handler when only domain name is given.
-  server.on("/", HTTP_GET, handleRedirect);
 
   TRACE("Register service handlers...\n");
 
   // serve a built-in htm page
-  server.on("/$upload.htm", []() {
-    server.send(200, "text/html", FPSTR(uploadContent));
+  server.on("/", []() {
+    server.send(200, "text/html", FPSTR(homePage));
   });
 
   // register some REST services
