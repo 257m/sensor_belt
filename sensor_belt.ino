@@ -59,6 +59,7 @@ WebServer server(80);
 const int trigPin = 2;  
 const int echoPin = 4;
 
+
 //defining our variables 
 long duration;//in long because the number is big, and not within the range of an integer
 int distance; //distace will be in cm as an integer no decimals 
@@ -110,10 +111,45 @@ void setup(void) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Website</title>
     <style>
-      
+      #speedometer {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+      }
+ 
+      #speedometer .needle {
+            width: 2px;
+            height: 80px;
+            background-color: red;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            transform: translate(-50%, 0) rotate(0deg);
+            transition: transform 0.5s;
+      }
+ 
+      #speedometer .speed {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+      }
     </style>
 </head>
-  <body> <div>Sensor Distance:)==") + String(distance) +
+  <body>  
+  <!-- Speedometer -->
+  <div class="text-center" id="speedometer">
+   <div class="needle">
+   </div>
+   <div class="speed">
+    0
+   </div>
+  </div> <div>Sensor Distance:)==") + String(distance) +
 String(R"==(</body>
 </html>
 )=="));
