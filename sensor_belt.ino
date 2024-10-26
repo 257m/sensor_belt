@@ -92,38 +92,11 @@ void setup(void) {
   server.on("/", []() {
     server.send(200, "text/html", FPSTR(homePage));
   });
-
-
-  TRACE("Register file system handlers...\n");
-
-  // UPLOAD and DELETE of files in the file system using a request handler.
-  server.addHandler(new FileServerHandler());
-
-  // enable CORS header in webserver results
-  server.enableCORS(true);
-
-  // enable ETAG header in webserver results (used by serveStatic handler)
-#if defined(CUSTOM_ETAG_CALC)
-  // This is a fast custom eTag generator. It returns a value based on the time the file was updated like
-  // ETag: 63bbceb5
-  server.enableETag(true, [](FS &fs, const String &path) -> String {
-    File f = fs.open(path, "r");
-    String eTag = String(f.getLastWrite(), 16);  // use file modification timestamp to create ETag
-    f.close();
-    return (eTag);
+  // serve a built-in htm page
+  server.on("/style.css", []() {
+    server.send(200, "text/html", FPSTR(styleCss));
   });
 
-#else
-  // enable standard ETAG calculation using md5 checksum of file content.
-  server.enableETag(true);
-#endif
-
-  // serve all static files
-  server.serveStatic("/", *fsys, "/");
-
-  TRACE("Register default (not found) answer...\n");
-
-  // handle cases when file is not found
   server.onNotFound([]() {
     // standard not found in browser.
     server.send(404, "text/html", FPSTR(notFoundContent));
@@ -134,10 +107,7 @@ void setup(void) {
   TRACE("open <http://%s> or <http://%s>\n", WiFi.getHostname(), WiFi.localIP().toString().c_str());
 }  // setup
 
-// run the server...
-void loop(void) {
-  server.handleClient();
-  //defining pin numbers 
+//defining pin numbers 
 const int trigPin = 9;  
 const int echoPin = 11;
 
@@ -145,25 +115,14 @@ const int echoPin = 11;
 long duration;//in long because the number is big, and not within the range of an integer
 int distance; //distace will be in cm as an integer no decimals 
 
-//determining if the pins are output or input 
-void setup() {
-  //determining pins on the sensor 
-  pinMode(9,OUTPUT);
-  pinMode(11,INPUT);
-
-  //Serial.begin(9600);
-}
-
-void loop() {
-    digitalWrite(9,LOW); //setting the trigger pin to low 
-delayMicroseconds(3); //delay for 3 microseconds
+void loop(void) {
+  server.handleClient();
+  /*digitalWrite(9,LOW); //setting the trigger pin to low 
+  delayMicroseconds(3); //delay for 3 microseconds
   digitalWrite(9, HIGH); //setting the trigger pin to high 
-delayMicroseconds(100);//delay for 10 microseconds 
+  delayMicroseconds(100);//delay for 10 microseconds 
   duration = pulseIn(11,HIGH);//our duration is equal to the time our pin is HIGH (pulseIn)
   distance = duration*.034/2; //this calculates the distance 
-     //Serial.print("distance ="); //here the distance is printed based on the calculations above 
-//   //Serial.println(distance); // what is the difference between print and println 
+  Serial.print("distance ="); //here the distance is printed based on the calculations above 
+  Serial.println(distance); // what is the difference between print and println*/
 }
-}  // loop()
-
-// end.
