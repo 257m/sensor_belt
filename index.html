@@ -4,10 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SightNav</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+      #speedometer {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            border-color: #000000;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: center;
+      }
+ 
+      #speedometer .needle {
+            width: 2px;
+            height: 80px;
+            background-color: red;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            transform: translate(-50%, 0) rotate(0deg);
+            transition: transform 0.5s;
+      }
+ 
+      #speedometer .speed {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+      }
+        </style>
+    </style>
+    <script>
+        $(document).ready(function() {
+              let speed = 0;
+              let maxSpeed = 200;
+  
+              setInterval(function() {
+                  speed += Math.floor(Math.random() * 20) + 1;
+                  if (speed > maxSpeed) {
+                      speed = maxSpeed;
+                  }
+  
+                  let rotation = (speed / maxSpeed) * 180;
+                  $('.needle').css('transform', 'translate(-50%, 0) rotate(' + rotation + 'deg)');
+                  $('.speed').text(speed);
+              }, 1000);
+          });
+      </script>
 </head>
 <body>
-    <script src="spedometer.js"></script>
     <nav class="navbar">
         <div class="navbar__container">
           <a href="/" id="navbar__logo">SIGHTNAV</a>
