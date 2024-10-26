@@ -63,7 +63,7 @@ float distance = 0.0;
 
 #include "components.h"
 
-int controlbuzz(distance) {
+/*int distance_buzz(distance) {
   digitalWrite(trig_pin, LOW);
   delayMicroseconds(2);
 
@@ -88,10 +88,10 @@ int controlbuzz(distance) {
     tone(buzzer, 600);
     delay(distance*5);
   }
-  else{
+  else {
     noTone(buzzer);
   }
-}
+}*/
 
 // Setup everything to make the webserver work.
 void setup(void) {
