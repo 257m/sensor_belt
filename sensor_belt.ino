@@ -58,12 +58,13 @@ WebServer server(80);
 const int buzzer = 6;
 const int trig_pin = 9;
 const int echo_pin = 11;
-float timing = 0.0;
-float distance = 0.0;
+
 
 #include "components.h"
 
-int distance_buzz() {
+int distance_i() {
+  float timing = 0.0;
+  float distance = 0.0;
   digitalWrite(trig_pin, LOW);
   delayMicroseconds(2);
 
@@ -74,7 +75,8 @@ int distance_buzz() {
   timing = pulseIn(echo_pin, HIGH);
 
   distance = timing * (0.034 / 2);
-
+}
+int buzzer(float distance) {
   if (distance <= 50) {
     tone(buzzer,500 + distance, distance*50);
     delay(distance*5);
