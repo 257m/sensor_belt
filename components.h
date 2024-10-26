@@ -1,7 +1,7 @@
 String dashboard = R"==(<nav class="navbar">
 
         <div class="navbar__container">
-          <a href="/" id="navbar__logo">NEXT</a>
+          <a href="/" id="navbar__logo">Object Sensor</a>
           <div class="navbar__toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -38,6 +38,11 @@ String dashboardCSS = R"==(*{
     padding: 0;
     font-family:'Kumbh Sans', sans-serif;
 }
+
+body {
+    background: rgba(2,5,5,0.3);
+}
+
 
 .navbar{
     background: #131313;
