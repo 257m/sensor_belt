@@ -1,4 +1,5 @@
 String dashboard = R"==(<nav class="navbar">
+
         <div class="navbar__container">
           <a href="/" id="navbar__logo">NEXT</a>
           <div class="navbar__toggle" id="mobile-menu">
@@ -199,7 +200,7 @@ String dashboardCSS = R"==(*{
         text-align: center;
         padding: 2rem;
         width: 100%;
-        display: table;
+display: table;
     }
 
     #mobile-menu{
@@ -231,3 +232,66 @@ String dashboardCSS = R"==(*{
 #settings_title{
     margin-bottom: 20px;
 })==";
+
+String speedometerJS = R"==(
+<script>
+      $(document).ready(function() {
+            let speed = 0;
+            let maxSpeed = 200;
+
+            setInterval(function() {
+                speed += Math.floor(Math.random() * 20) + 1;
+                if (speed > maxSpeed) {
+                    speed = maxSpeed;
+                }
+
+                let rotation = (speed / maxSpeed) * 180;
+                $('.needle').css('transform', 'translate(-50%, 0) rotate(' + rotation + 'deg)');
+                $('.speed').text(speed);
+            }, 1000);
+        });
+    </script>
+)==";
+
+String speedometerCSS = R"==(
+    <style>
+      #speedometer {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+      }
+ 
+      #speedometer .needle {
+            width: 2px;
+            height: 80px;
+            background-color: red;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            transform: translate(-50%, 0) rotate(0deg);
+            transition: transform 0.5s;
+      }
+ 
+      #speedometer .speed {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+      }
+    </style>
+)==";
+
+String speedometer = R"==(
+  <!-- Speedometer -->
+  <div class="text-center" id="speedometer">
+   <div class="needle">
+   </div>
+   <div class="speed">
+    )==") + String(distance) + String(R"==(
+   </div>
+)==";

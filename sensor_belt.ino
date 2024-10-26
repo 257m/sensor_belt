@@ -110,64 +110,10 @@ void setup(void) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Website</title>
-    <script>
-      $(document).ready(function() {
-            let speed = 0;
-            let maxSpeed = 200;
-
-            setInterval(function() {
-                speed += Math.floor(Math.random() * 20) + 1;
-                if (speed > maxSpeed) {
-                    speed = maxSpeed;
-                }
-
-                let rotation = (speed / maxSpeed) * 180;
-                $('.needle').css('transform', 'translate(-50%, 0) rotate(' + rotation + 'deg)');
-                $('.speed').text(speed);
-            }, 1000);
-        });
-    </script>
-    <style>
-      #speedometer {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-      }
- 
-      #speedometer .needle {
-            width: 2px;
-            height: 80px;
-            background-color: red;
-            position: absolute;
-            bottom: 50%;
-            left: 50%;
-            transform-origin: bottom center;
-            transform: translate(-50%, 0) rotate(0deg);
-            transition: transform 0.5s;
-      }
- 
-      #speedometer .speed {
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 20px;
-      }
-    </style>
-</head>
-  <body>  
-  <!-- Speedometer -->
-  <div class="text-center" id="speedometer">
-   <div class="needle">
-   </div>
-   <div class="speed">
-    )==") + String(distance) + String(R"==(
-   </div>
-  </body>
+    <title>First Website</title>)==") + speedometerCSS + speedometerJS +
+String(R"==(</head>
+  <body>)==") + speedometer +
+  String(R"==(</body>
 </html>
 )=="));
   });
