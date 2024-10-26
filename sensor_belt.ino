@@ -55,32 +55,51 @@ WebServer server(80);
 // The text of builtin files are in this header file
 #include "builtinfiles.h"
 
-//defining pin numbers 
-const int trigPin = 2;  
-const int echoPin = 4;
-
-
-//defining our variables 
-long duration;//in long because the number is big, and not within the range of an integer
-int distance; //distace will be in cm as an integer no decimals 
+const int trig_pin = 9;
+const int echo_pin = 11;
+float timing = 0.0;
+float distance = 0.0;
 
 #include "components.h"
 
-int final_distance() {
-   digitalWrite(2,LOW); //setting the trigger pin to low 
-  delayMicroseconds(3); //delay for 3 microseconds
-  digitalWrite(2, HIGH); //setting the trigger pin to high 
-  delayMicroseconds(100);//delay for 10 microseconds 
-  duration = pulseIn(4,HIGH);//our duration is equal to the time our pin is HIGH (pulseIn)
-  distance = duration*.034/2; //this calculates the distance 
-  Serial.print("distance ="); //here the distance is printed based on the calculations above 
-  Serial.println(distance); // what is the difference between print and println
-  return distance;
+int control_buzz(distance) {
+  digitalWrite(trig_pin, LOW);
+  delayMicroseconds(2);
+
+  digitalWrite(trig_pin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig_pin, LOW);
+
+  timing = pulseIn(echo_pin, HIGH);
+
+  distance = timing * (0.034 / 2);
+
+  if (distance <= 50) {
+    tone(buzzer, 30, distance50);
+    delay(distance5);
+    noTone(buzzer);
+    delay(distance5);
+
+  }
+  else if (distance <= 100) {
+    tone(buzzer, 600);
+    delay(distance5);
+    tone(buzzer, 600);
+    delay(distance*5);
+  }
+  else{
+    noTone(buzzer);
+  }
 }
 
 // Setup everything to make the webserver work.
 void setup(void) {
-  delay(3000);  // wait for serial monitor to start completely.
+  pinMode(echo_pin, INPUT);
+  pinMode(trig_pin, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+
+  digitalWrite(trig_pin, LOW);
+  digitalWrite(buzzer, LOW);
 
   // Use Serial port for some trace information from the example
   Serial.begin(9600);
@@ -153,11 +172,4 @@ server.on("/settings.html", []() {
 
 void loop(void) {
   server.handleClient();
-  //final_distance();
 }
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 0283efb1c26c17ab5b28220001d583e20f10d060
