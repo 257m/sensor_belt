@@ -115,7 +115,7 @@ void setup(void) {
     <style>
     )==") + dashboardCSS + speedometerCSS + String("</style>") + speedometerJS +
 String(R"==(</head>
-  <body>)==") + speedometer() +
+  <body>)==") + dashboard + speedometer() +
 String(R"==(
 </body>
 </head>
