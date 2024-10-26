@@ -101,7 +101,22 @@ void setup(void) {
 
   // serve a built-in htm page
   server.on("/", []() {
-    server.send(200, "text/html", String(final_distance()));
+    server.send(200, "text/html", 
+  String(R"==(
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+)==") +
+String(final_distance()) +
+String(R"==(</body>
+</html>
+)=="));
   });
   // serve a built-in htm page
   server.on("/style.css", []() {
