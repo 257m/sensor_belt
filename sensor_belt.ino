@@ -113,9 +113,10 @@ void setup(void) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Website</title>
     <style>
-    )==") + dashboardCSS + speedometerCSS + String("</style>") + speedometerJS +
+    )==") + dashboardCSS + String("</style>") +
+  speedometerCSS + speedometerJS +
 String(R"==(</head>
-  <body>)==") + dashboard + speedometer() +
+  <body>)==") + speedometer() +
 String(R"==(
 </body>
 </head>
@@ -134,7 +135,6 @@ server.on("/settings.html", []() {
     <title>First Website</title>
     <style>)==") + dashboardCSS +
     String(R"==(</style>
-    <script src="settings.js"></script>n
 </head>
 <body>)==") + dashboard + settings + String(R"==(</body>
 </html>
@@ -154,5 +154,5 @@ server.on("/settings.html", []() {
 
 void loop(void) {
   server.handleClient();
-  final_distance();
+  //final_distance();
 }
