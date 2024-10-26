@@ -254,7 +254,6 @@ String speedometerJS = R"==(
 )==";
 
 String speedometerCSS = R"==(
-    <style>
       #speedometer {
             width: 200px;
             height: 200px;
@@ -283,7 +282,6 @@ String speedometerCSS = R"==(
             font-weight: bold;
             margin-top: 20px;
       }
-    </style>
 )==";
 
 String speedometer() {
