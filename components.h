@@ -32,6 +32,33 @@ String settings = R"==(
     </div>
 )==";
 
+String settingsJS = R"==(
+<script>
+      document.addEventListener("DOMContentLoaded", function(event) { 
+let sensDistSlide = document.getElementById("sensor_dist");
+let vibrateStrSlide = document.getElementById("vibrate_strength");
+let distOut = document.getElementById("sensor_dist_display");
+let strOut = document.getElementById("vibrate_strength_display");
+updateValues();
+
+
+sensDistSlide.oninput = function() {
+    updateValues();
+};
+
+vibrateStrSlide.oninput = function() {
+    updateValues();
+};
+
+function updateValues() {
+    distOut.innerHTML=sensDistSlide.value+"m";
+    strOut.innerHTML=Math.round(vibrateStrSlide.value*100)+"%";
+}
+});
+
+    </script>
+)==";
+
 String dashboardCSS = R"==(*{
     box-sizing: border-box;
     margin: 0;
