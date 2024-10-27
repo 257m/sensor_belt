@@ -175,4 +175,5 @@ server.on("/settings.html", []() {
 
 void loop(void) {
   server.handleClient();
+  buzzer(distance_i());
 }
